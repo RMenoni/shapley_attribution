@@ -1,5 +1,7 @@
 import v_value
 import pickle, os, datetime, time
+from collections import defaultdict
+from math import factorial
 
 
 def unpickle_shapley() -> dict:
@@ -17,8 +19,6 @@ def pickle_shapley(shapley_values: dict):
 
 
 def shapley(channels: list, v_values: dict) -> dict:
-    from collections import defaultdict
-    from math import factorial
     n: int = len(channels)
     res = defaultdict(float)
     count: int = 0
@@ -41,7 +41,7 @@ def main():
     shapley_vals = unpickle_shapley()
     if shapley_vals is None:   
         start_time: float = time.time()
-        with open('conversion_groups.pickle', 'rb') as file:
+        with open('conversion_groups_sp.pickle', 'rb') as file:
             C_values: dict = pickle.load(file)
         channels: list = sorted([c for c in C_values.keys() if ',' not in c])
         print(sum(C_values.values()))

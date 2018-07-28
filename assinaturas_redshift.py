@@ -1,11 +1,29 @@
 import pandas as pd
-import numpy as np
 from psycopg2 import connect
 import pickle
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+
+def get_credentials() -> (str, str):
+    """ Extrai usuario e senha do banco Redshift HML do arquivo '.env'
+
+    :return: (usuario, senha)
+    """
+    env_path = Path('.') / '.env'
+    load_dotenv(dotenv_path=env_path)
+    return os.getenv('REDSHIFT_USERNAME'), os.getenv('REDSHIFT_PASSWORD')
 
 
 def get_df_from_query() -> pd.DataFrame:
-    con = connect(host='analytics-bi.cdlqehqrgcus.us-east-1.redshift.amazonaws.com', dbname='hmlredshift', port=5439, user='', password='')
+    """ Cria dataframe de vendas a partir da tabela sales.tb_rep_receita no Redshift
+
+    :return: dataframe de vendas
+    """
+    username, password = get_credentials()
+    con = connect(host='analytics-bi.cdlqehqrgcus.us-east-1.redshift.amazonaws.com',
+                  dbname='hmlredshift', port=5439, user=username, password=password)
     query: str = """
         SELECT
             subscription_id,
@@ -24,8 +42,15 @@ def get_df_from_query() -> pd.DataFrame:
     
     
 def clean_df(df: pd.DataFrame) -> pd.DataFrame:
-    df['categoria'] = df['categoria_detalhe'].apply(lambda s: 'Frontend' if s in {'Frontend', 'Bundle Front'} else 'Backend')
-    return df.drop(columns='categoria_detalhe')
+    """ Regulariza a coluna 'categoria' como somente 'Frontend' e 'Backend'
+
+    :param df:
+    :return:
+    """
+    df['categoria'] = df['categoria_detalhe'].apply(lambda s: 'Frontend' if s in
+                                                    {'Frontend', 'Bundle Front'} else 'Backend')
+    df = df.drop(columns='categoria_detalhe')
+    return df
 
 
 def main():
@@ -41,4 +66,3 @@ def main():
         
 if __name__ == '__main__':
     main()
-    

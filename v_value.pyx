@@ -1,8 +1,9 @@
 import numpy as np
 cimport numpy as cnp
-from itertools import combinations
-from libcpp.string cimport string
-DTYPE = np.unicode_
+import itertools
+import os.path
+import pickle
+
 
 cpdef list subseq_list(list seq):
     cdef int n = len(seq)
@@ -10,7 +11,7 @@ cpdef list subseq_list(list seq):
     cdef list combos
     cdef list all_subseq = []
     for i in range(1, n+1):
-        combos = list(combinations(seq, i))
+        combos = list(itertools.combinations(seq, i))
         for j in range(0, len(combos)):
             all_subseq.append(','.join(sorted(combos[j])))
     return all_subseq
@@ -24,7 +25,7 @@ def subseq(list seq) -> generator:
         for s in itertools.combinations(seq, i):
             yield ','.join(sorted(s))
 
-
+            
 cdef int v_function_count = 0
 cdef dict C_values
 cpdef int v_function(A):
@@ -41,13 +42,11 @@ cpdef int v_function(A):
 
 
 cpdef dict get_v_values(list channels, dict conversions):
-    import os.path
-    import pickle
     cdef str filename = 'v_values.pickle'
     if os.path.isfile(filename):
         with open(filename, 'rb') as file:
             return pickle.load(file)
-    cdef cnp.ndarray all_subseq = np.array(subseq_list(channels))
+    cdef cnp.ndarray all_subseq = np.array(list(subseq(channels)))
     cdef cnp.ndarray v_values_array = np.zeros(2**len(channels)-1)
     global C_values
     C_values = conversions
