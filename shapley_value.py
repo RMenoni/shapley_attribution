@@ -1,61 +1,91 @@
 import v_value
-import pickle, os, datetime, time
+import pickle, os, datetime, time, sys
 from collections import defaultdict
 from math import factorial
+from pprint import pprint
 
 
-def unpickle_shapley() -> dict:
-    filename = 'shapley.pickle'
-    if os.path.isfile(filename):
-        with open(filename, 'rb') as file:
-            return pickle.load(file)
-    return None    
+def unpickle(filename: str) -> dict:
+    if not os.path.isfile(filename):
+        return None
+    with open(filename, 'rb') as file:
+        return pickle.load(file)
 
 
-def pickle_shapley(shapley_values: dict):
-    filename = 'shapley.pickle'
+def pickle_dict(p_dict: dict, filename: str):
     with open(filename, 'wb') as file:
-        pickle.dump(shapley_values, file)
+        pickle.dump(p_dict, file)
 
 
-def shapley(channels: list, v_values: dict) -> dict:
-    n: int = len(channels)
-    res = defaultdict(float)
+def get_writers(conversions: dict) -> set:
+    """ Cria conjunto de copywriters a partir do dicionario de conversoes
+
+    :param conversions: dicionario de chaves combinacao de writers e valores conversoes/receita
+    :return: conjunto de copywriters
+    """
+    writers: set = set()
+    for k in conversions.keys():
+        for writer in k.split(','):
+            writers.add(writer)
+    return writers
+
+
+def make_or_get_v_values(writers: set, conversions: dict, model: str, conv_or_revenue: str):
+    filename: str = f'v_values_{model}_{conv_or_revenue}'
+    v_values: dict = unpickle(filename)
+    if v_values is None:
+        v_values = v_value.get_v_values(writers, conversions)
+        pickle_dict(v_values, filename)
+    return v_values
+
+
+def shapley(writers: set, v_values: dict) -> dict:
+    """ Aplica a formula Shapley (primeira na pagina https://en.wikipedia.org/wiki/Shapley_value)
+
+    :param writers: lista de copywriters
+    :param v_values: dicionario com chaves combinacao de copywriters e valores conversoes/receita
+    gerados
+    :return: dicionario com chaves copywriters e valores valores shapley (conversao/receita)
+    """
+    n: int = len(writers)
+    shapley_dict = defaultdict(float)
     count: int = 0
-    for channel in channels:
+    for writer in writers:
         count += 1
-        print(f'channel {count} of {n}')
-        for A in v_values.keys():
-            A_arr = A.split(',')
-            if channel not in A_arr:
-                cardinal_A = len(A_arr)
-                A_with_channel = A_arr
-                A_with_channel.append(channel)
-                A_with_channel = ','.join(sorted(A_with_channel))
-                res[channel] += (v_values[A_with_channel] - v_values[A])*(factorial(cardinal_A)*factorial(n-cardinal_A-1)/factorial(n))
-        res[channel] += v_values[channel] / n
-    return res
+        print(f'writer {count} of {n}')
+        for combo in v_values.keys():
+            combo_arr: list = combo.split(',')
+            if writer not in combo_arr:
+                cardinal_combo: int = len(combo_arr)
+                combo_with_writer: list = combo_arr
+                combo_with_writer.append(writer)
+                combo_with_writer: str = ','.join(sorted(combo_with_writer))
+                shapley_dict[writer] += (v_values[combo_with_writer] - v_values[combo]) * \
+                                        (factorial(cardinal_combo)*factorial(n-cardinal_combo-1) /
+                                         factorial(n))
+        shapley_dict[writer] += v_values[writer] / n
+    return shapley_dict
 
 
-def main():
-    shapley_vals = unpickle_shapley()
+def main(model: str, conv_or_revenue: str):
+    shapley_vals = unpickle('shapley.pickle')
     if shapley_vals is None:   
         start_time: float = time.time()
-        with open('conversion_groups_sp.pickle', 'rb') as file:
-            C_values: dict = pickle.load(file)
-        channels: list = sorted([c for c in C_values.keys() if ',' not in c])
-        print(sum(C_values.values()))
-        v_values: dict = v_value.get_v_values(channels, C_values)
-        shapley_vals: dict = shapley(channels, v_values)
-        end_time: float = time.time()
-        pickle_shapley(shapley_vals)
-    sorted_res = sorted(shapley_vals.items(), key=lambda kv: kv[1])
-    from pprint import pprint
+        conversions: dict = unpickle(f'conversion_groups_{model}_{conv_or_revenue}.pickle')
+        writers: set = get_writers(conversions)
+        print(sum(conversions.values()))
+        v_values: dict = make_or_get_v_values(writers, conversions, model, conv_or_revenue)
+        shapley_vals: dict = shapley(writers, v_values)
+        pickle_dict(shapley_vals, 'shapley.pickle')
+        print(f'Duração: {datetime.timedelta(seconds=time.time()-start_time)}')
+    sorted_res: list = sorted(shapley_vals.items(), key=lambda kv: kv[1])
     pprint(sorted_res)
     print(sum(shapley_vals.values()))
-    if 'end_time' in locals():
-        print(f'Duração: {datetime.timedelta(seconds=end_time-start_time)}')
 
     
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) < 3 or sys.argv[1] not in ('sp', 'sf') or sys.argv[2] not in \
+            ('conversoes', 'receita'):
+        print('Argumento inválido.\nUso: python shapley_value.py [sp/sf] [conversoes/receita]')
+    else:
+        main(sys.argv[1], sys.argv[2])

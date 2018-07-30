@@ -3,21 +3,21 @@ cimport numpy as cnp
 import itertools
 import os.path
 import pickle
-
-
-cpdef list subseq_list(list seq):
-    cdef int n = len(seq)
-    cdef int i, j
-    cdef list combos
-    cdef list all_subseq = []
-    for i in range(1, n+1):
-        combos = list(itertools.combinations(seq, i))
-        for j in range(0, len(combos)):
-            all_subseq.append(','.join(sorted(combos[j])))
-    return all_subseq
+DTYPE_FLOAT = np.float64
+ctypedef cnp.float64_t DTYPE_FLOAT_t
     
-
+    
+def unpickle_values():
+    with open('v_values.pickle', 'rb') as file:
+        return pickle.load(file)
+    
+    
 def subseq(list seq) -> generator:
+    """ Gerador de todas as subcombinacoes de uma sequencia (exceto a sequencia vazia)
+    
+    :param seq: combinacao de copywriters, separado por virgulas
+    :return: iterador de todas as subsequencias
+    """
     cdef int n = len(seq)
     cdef int i
     cdef tuple s
@@ -26,36 +26,42 @@ def subseq(list seq) -> generator:
             yield ','.join(sorted(s))
 
             
-cdef int v_function_count = 0
-cdef dict C_values
-cpdef int v_function(A):
-    global v_function_count
-    v_function_count += 1
-    if v_function_count % 10000 == 0:
-        print(v_function_count)
-    cdef int worth_of_A = 0
+cdef int g_count = 0
+cdef dict g_conversions
+cpdef double v_function(combo):
+    """ Soma todas as conversoes geradas pela combinacao de writers combo e suas subcombinacoes
+    
+    :param combo: lista de writers
+    :return: conversoes geradas por todas as subcombinacoes de combo
+    """
+    global g_count
+    g_count += 1
+    if g_count % 10000 == 0:
+        print(g_count)
+    cdef double worth_of_combo = 0
     cdef str subset
-    for subset in subseq(A.split(',')):
-        if subset in C_values.keys():
-            worth_of_A += C_values[subset]
-    return worth_of_A
+    for subset in subseq(combo.split(',')):
+        if subset in g_conversions.keys():
+            worth_of_combo += g_conversions[subset]
+    return worth_of_combo
 
 
-cpdef dict get_v_values(list channels, dict conversions):
-    cdef str filename = 'v_values.pickle'
-    if os.path.isfile(filename):
-        with open(filename, 'rb') as file:
-            return pickle.load(file)
-    cdef cnp.ndarray all_subseq = np.array(list(subseq(channels)))
-    cdef cnp.ndarray v_values_array = np.zeros(2**len(channels)-1)
-    global C_values
-    C_values = conversions
+cpdef dict get_v_values(set writers, dict conversions):
+    """ Cria um dicionario com todas as combinacoes possiveis de writers e seus 'v_values'
+    
+    :param writers: conjunto de todos os copywriters
+    :param conversions: dicionario de chaves combinacao de writers e valores conversoes
+    :return: dicionario com todas as combinacoes e a soma das conversoes de todas suas subcombinacoes
+    """
+    if os.path.isfile('v_values.pickle'):
+        return unpickle_values()
+    cdef cnp.ndarray all_subseq = np.array(list(subseq(list(writers))))
+    cdef cnp.ndarray[DTYPE_FLOAT_t] v_values_array = np.zeros(2**len(writers)-1, dtype=DTYPE_FLOAT)
+    global g_conversions
+    g_conversions = conversions
     vector_v_function = np.vectorize(v_function)
     v_values_array = vector_v_function(all_subseq)
-    cdef int i
-    cdef dict v_values = {}
-    for i in range(v_values_array.size):
-        v_values[all_subseq[i]] = v_values_array[i]
-    with open(filename, 'wb') as file:
+    cdef dict v_values = dict(zip(all_subseq, v_values_array))
+    with open('v_values.pickle', 'wb') as file:
         pickle.dump(v_values, file)
     return v_values

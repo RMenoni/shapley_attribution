@@ -1,7 +1,7 @@
-import pandas as pd
-from psycopg2 import connect
 import pickle
 import os
+import pandas as pd
+from psycopg2 import connect
 from dotenv import load_dotenv
 from pathlib import Path
 
