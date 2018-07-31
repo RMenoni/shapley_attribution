@@ -1,3 +1,14 @@
+"""
+    Realiza cruzamento entre conversões no BigQuery e vendas no Redshift, eliminando
+    assinaturas que geraram 0.00 receita.
+    Também faz a conversão de copies para copywriters.
+    Dependendo dos argumentos dados, considera
+        - Número de conversões ou receita gerada
+        - Modelo Last Click, Shapley Value, ou Shapley Value só com vendas fantasmas
+        - Vendas de front ou de back
+"""
+
+
 import pandas as pd
 import pickle
 import sys
@@ -33,13 +44,17 @@ def get_copywriters_and_paidsubs() -> (dict, dict):
     return copywriters, paid_subs
 
 
-def pickle_conversions(conversions_dict: dict, model: str):
+def pickle_conversions(conversions_dict: dict, model: str, conv_or_revenue: str, category: str):
     """ Armazena dict com conversoes/receita por copywriters em um arquivo pickle
 
     :param conversions_dict:
     :param model: modelo 'lc'/'sp'/'sf'
+    :param conv_or_revenue: 'conversions'/'revenue'
+    :param category: 'frontend'/'backend'
     """
-    with open(f'conversion_groups_{model}.pickle', 'wb') as file:
+    filename = (f'last_click_{conv_or_revenue}_{category}.pickle' if model == 'lc' else
+                f'conversion_groups_{model}_{conv_or_revenue}_{category}.pickle')
+    with open(filename, 'wb') as file:
         pickle.dump(conversions_dict, file)
     print('Sucesso')
 
@@ -102,7 +117,6 @@ def make_conversion_dict(conversions: pd.DataFrame, conv_or_revenue: str, model:
         conversions_dict = conversions.count().to_dict()['Valor']
     else:
         conversions_dict = conversions.sum().to_dict()['Valor']
-    del conversions_dict['']
     return conversions_dict
 
 
@@ -111,7 +125,7 @@ def main(conv_or_revenue: str, model: str, category: str):
     conversions: pd.DataFrame = process_conversions(get_conversions_from_csv(model), copywriters,
                                                     paid_subs, category)
     conversions_dict: dict = make_conversion_dict(conversions, conv_or_revenue, model)
-    pickle_conversions(conversions_dict, model)
+    pickle_conversions(conversions_dict, model, conv_or_revenue, category)
     
     
 if __name__ == '__main__':

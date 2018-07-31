@@ -1,3 +1,8 @@
+"""
+    Calcula os valores Shapley
+"""
+
+
 import v_value
 import pickle, os, datetime, time, sys
 from collections import defaultdict
@@ -30,8 +35,17 @@ def get_writers(conversions: dict) -> set:
     return writers
 
 
-def make_or_get_v_values(writers: set, conversions: dict, model: str, conv_or_revenue: str):
-    filename: str = f'v_values_{model}_{conv_or_revenue}'
+def make_or_get_v_values(writers: set, conversions: dict, model: str, conv_or_revenue: str, category: str):
+    """ Chama a função get_v_values ou extrai os valores de um pickle se já existe
+
+    :param writers: conjunto de copywriters
+    :param conversions: dicionário de conversões
+    :param model: 'sp'/'sf'
+    :param conv_or_revenue: 'conversoes'/'receita'
+    :param category: 'frontend'/'backend'
+    :return: dicionário de conversões/receita de todas as combinações de copywriters
+    """
+    filename: str = f'v_values_{model}_{conv_or_revenue}_{category}.pickle'
     v_values: dict = unpickle(filename)
     if v_values is None:
         v_values = v_value.get_v_values(writers, conversions)
@@ -67,16 +81,17 @@ def shapley(writers: set, v_values: dict) -> dict:
     return shapley_dict
 
 
-def main(model: str, conv_or_revenue: str):
-    shapley_vals = unpickle('shapley.pickle')
+def main(model: str, conv_or_revenue: str, category: str):
+    shapley_filename: str = f'shapley_{model}_{conv_or_revenue}_{category}.pickle'
+    shapley_vals = unpickle(shapley_filename)
     if shapley_vals is None:   
         start_time: float = time.time()
         conversions: dict = unpickle(f'conversion_groups_{model}_{conv_or_revenue}.pickle')
         writers: set = get_writers(conversions)
         print(sum(conversions.values()))
-        v_values: dict = make_or_get_v_values(writers, conversions, model, conv_or_revenue)
+        v_values: dict = make_or_get_v_values(writers, conversions, model, conv_or_revenue, category)
         shapley_vals: dict = shapley(writers, v_values)
-        pickle_dict(shapley_vals, 'shapley.pickle')
+        pickle_dict(shapley_vals, shapley_filename)
         print(f'Duração: {datetime.timedelta(seconds=time.time()-start_time)}')
     sorted_res: list = sorted(shapley_vals.items(), key=lambda kv: kv[1])
     pprint(sorted_res)
@@ -84,8 +99,9 @@ def main(model: str, conv_or_revenue: str):
 
     
 if __name__ == '__main__':
-    if len(sys.argv) < 3 or sys.argv[1] not in ('sp', 'sf') or sys.argv[2] not in \
-            ('conversoes', 'receita'):
-        print('Argumento inválido.\nUso: python shapley_value.py [sp/sf] [conversoes/receita]')
+    if len(sys.argv) < 4 or sys.argv[1] not in ('sp', 'sf') or sys.argv[2] not in \
+            ('conversoes', 'receita') or sys.argv[3] not in ('frontend', 'backend'):
+        print('Argumento inválido.\nUso: python shapley_value.py [sp/sf] [conversoes/receita]'
+              ' [frontend/backend]')
     else:
-        main(sys.argv[1], sys.argv[2])
+        main(sys.argv[1], sys.argv[2], sys.argv[3])

@@ -1,3 +1,10 @@
+"""
+    Obtém informações de vendas do banco hmlredshift na tabela sales.tb_rep_receita
+    e transforma em um dicionário em que a chave é a assinatura e o valor é
+    uma tupla com a receita nova líquida e a categoria
+"""
+
+
 import pickle
 import os
 import pandas as pd

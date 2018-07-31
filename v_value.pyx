@@ -7,11 +7,6 @@ DTYPE_FLOAT = np.float64
 ctypedef cnp.float64_t DTYPE_FLOAT_t
     
     
-def unpickle_values():
-    with open('v_values.pickle', 'rb') as file:
-        return pickle.load(file)
-    
-    
 def subseq(list seq) -> generator:
     """ Gerador de todas as subcombinacoes de uma sequencia (exceto a sequencia vazia)
     
@@ -53,8 +48,6 @@ cpdef dict get_v_values(set writers, dict conversions):
     :param conversions: dicionario de chaves combinacao de writers e valores conversoes
     :return: dicionario com todas as combinacoes e a soma das conversoes de todas suas subcombinacoes
     """
-    if os.path.isfile('v_values.pickle'):
-        return unpickle_values()
     cdef cnp.ndarray all_subseq = np.array(list(subseq(list(writers))))
     cdef cnp.ndarray[DTYPE_FLOAT_t] v_values_array = np.zeros(2**len(writers)-1, dtype=DTYPE_FLOAT)
     global g_conversions
@@ -62,6 +55,4 @@ cpdef dict get_v_values(set writers, dict conversions):
     vector_v_function = np.vectorize(v_function)
     v_values_array = vector_v_function(all_subseq)
     cdef dict v_values = dict(zip(all_subseq, v_values_array))
-    with open('v_values.pickle', 'wb') as file:
-        pickle.dump(v_values, file)
     return v_values

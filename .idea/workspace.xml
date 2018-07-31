@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c45c548-3d8f-44e1-aee9-a6cc2d7bba99" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/copywriters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assinaturas_redshift.py" beforeDir="false" afterPath="$PROJECT_DIR$/assinaturas_redshift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/temp.win-amd64-3.6/Release/v_value.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/temp.win-amd64-3.6/Release/v_value.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shapley_value.py" beforeDir="false" afterPath="$PROJECT_DIR$/shapley_value.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v_value.c" beforeDir="false" afterPath="$PROJECT_DIR$/v_value.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v_value.cp36-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/v_value.cp36-win_amd64.pyd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v_value.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/v_value.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validar_assinaturas.py" beforeDir="false" afterPath="$PROJECT_DIR$/validar_assinaturas.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,28 +19,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="validar_assinaturas.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="validar_assinaturas.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+            <state relative-caret-position="105">
+              <caret line="69" column="56" selection-start-line="69" selection-start-column="56" selection-end-line="69" selection-end-column="56" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#2406#2747#1" expanded="true" />
+                <element signature="e#0#407#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shapley_value.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="copywriters.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/copywriters.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+              <folding>
+                <element signature="e#0#8#1" expanded="true" />
+                <element signature="e#243#262#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shapley_value.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shapley_value.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
+            <state relative-caret-position="320">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <element signature="e#476#597#1" expanded="true" />
-                <element signature="e#526#872#1" expanded="true" />
+                <element signature="e#0#38#1" expanded="true" />
+                <element signature="e#41#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,11 +60,8 @@
       <file leaf-file-name="assinaturas_redshift.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assinaturas_redshift.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-              <folding>
-                <element signature="e#1309#1417#1" expanded="true" />
-              </folding>
+            <state relative-caret-position="20">
+              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -62,6 +70,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -69,8 +78,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/copywriters.ipynb" />
-        <option value="$PROJECT_DIR$/validar_assinaturas.py" />
         <option value="$PROJECT_DIR$/assinaturas_redshift.py" />
+        <option value="$PROJECT_DIR$/copywriters.py" />
+        <option value="$PROJECT_DIR$/validar_assinaturas.py" />
         <option value="$PROJECT_DIR$/shapley_value.py" />
       </list>
     </option>
@@ -101,7 +111,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/shapley_value.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/copywriters.py" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -116,7 +126,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Shapley Puro Receita">
+  <component name="RunManager" selected="Python.Shapley Value Puro Receita Backend">
     <configuration name="Shapley" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="Shapley" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,7 +143,7 @@
       <option name="ipnbHost" value="127.0.0.1" />
       <option name="ipnbPort" value="8888" />
     </configuration>
-    <configuration name="Assinaturas Redshift" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="Assinaturas Redshift" type="PythonConfigurationType" factoryName="Python" singleton="true">
       <module name="Shapley" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -151,7 +161,97 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Receita Shapley Puro Backend" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="Make Copywriter Dict" type="PythonConfigurationType" factoryName="Python">
+      <module name="Shapley" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\raphael.menoni\AppData\Local\Continuum\anaconda3\envs\Tableau-Python-Server\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/copywriters.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Shapley Value Puro Conversoes" type="PythonConfigurationType" factoryName="Python">
+      <module name="Shapley" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\raphael.menoni\AppData\Local\Continuum\anaconda3\envs\Tableau-Python-Server\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shapley_value.py" />
+      <option name="PARAMETERS" value="sp conversoes" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Shapley Value Puro Receita Backend" type="PythonConfigurationType" factoryName="Python">
+      <module name="Shapley" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\raphael.menoni\AppData\Local\Continuum\anaconda3\envs\Tableau-Python-Server\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shapley_value.py" />
+      <option name="PARAMETERS" value="sp receita backend" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Validar Receita Last Click Backend" type="PythonConfigurationType" factoryName="Python">
+      <module name="Shapley" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\raphael.menoni\AppData\Local\Continuum\anaconda3\envs\Tableau-Python-Server\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/validar_assinaturas.py" />
+      <option name="PARAMETERS" value="receita lc backend" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Validar Receita Last Click Frontend" type="PythonConfigurationType" factoryName="Python">
+      <module name="Shapley" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\raphael.menoni\AppData\Local\Continuum\anaconda3\envs\Tableau-Python-Server\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/validar_assinaturas.py" />
+      <option name="PARAMETERS" value="receita lc frontend" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Validar Receita Shapley Puro Backend" type="PythonConfigurationType" factoryName="Python">
       <module name="Shapley" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -169,7 +269,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Shapley Puro Receita" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="Validar Receita Shapley Puro Frontend" type="PythonConfigurationType" factoryName="Python">
       <module name="Shapley" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -181,16 +281,21 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shapley_value.py" />
-      <option name="PARAMETERS" value="sp receita" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/validar_assinaturas.py" />
+      <option name="PARAMETERS" value="receita sp frontend" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
       <item itemvalue="Jupyter Notebook.Shapley" />
-      <item itemvalue="Python.Receita Shapley Puro Backend" />
-      <item itemvalue="Python.Shapley Puro Receita" />
+      <item itemvalue="Python.Validar Receita Shapley Puro Backend" />
+      <item itemvalue="Python.Validar Receita Shapley Puro Frontend" />
+      <item itemvalue="Python.Validar Receita Last Click Backend" />
+      <item itemvalue="Python.Validar Receita Last Click Frontend" />
+      <item itemvalue="Python.Shapley Value Puro Receita Backend" />
+      <item itemvalue="Python.Shapley Value Puro Conversoes" />
+      <item itemvalue="Python.Make Copywriter Dict" />
       <item itemvalue="Python.Assinaturas Redshift" />
     </list>
   </component>
@@ -205,20 +310,27 @@
       <option name="presentableId" value="Default" />
       <updated>1532695005108</updated>
     </task>
+    <task id="LOCAL-00001" summary="Varios comentarios">
+      <created>1532973963091</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532973963091</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16983895" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.57392687" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42130366" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -236,14 +348,64 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Varios comentarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Varios comentarios" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#407#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copywriters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#0#8#1" expanded="true" />
+            <element signature="e#243#262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shapley_value.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#1" expanded="true" />
+            <element signature="e#41#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assinaturas_redshift.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1040">
           <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#2406#2747#1" expanded="true" />
+            <element signature="e#0#407#1" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -252,9 +414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding>
-            <element signature="e#1309#1417#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -263,9 +422,8 @@
         <state relative-caret-position="640">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#476#597#1" expanded="true" />
-            <element signature="e#526#872#1" expanded="true" />
+            <element signature="e#0#38#1" expanded="true" />
+            <element signature="e#41#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -287,13 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/copywriters.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v_value.cp36-win_amd64.pyd">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-780" />
@@ -302,35 +453,57 @@
     <entry file="file://$PROJECT_DIR$/v_value.pyx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
+    <entry file="file://$PROJECT_DIR$/copywriters.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copywriters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+        <state relative-caret-position="367">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#2406#2747#1" expanded="true" />
+            <element signature="e#0#8#1" expanded="true" />
+            <element signature="e#243#262#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assinaturas_redshift.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding>
-            <element signature="e#1309#1417#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="20">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shapley_value.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
+        <state relative-caret-position="320">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#476#597#1" expanded="true" />
-            <element signature="e#526#872#1" expanded="true" />
+            <element signature="e#0#38#1" expanded="true" />
+            <element signature="e#41#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="69" column="56" selection-start-line="69" selection-start-column="56" selection-end-line="69" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#407#1" expanded="true" />
           </folding>
         </state>
       </provider>
