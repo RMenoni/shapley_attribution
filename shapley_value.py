@@ -32,6 +32,7 @@ def get_writers(conversions: dict) -> set:
     for k in conversions.keys():
         for writer in k.split(','):
             writers.add(writer)
+    print(writers)
     return writers
 
 
@@ -65,6 +66,8 @@ def shapley(writers: set, v_values: dict) -> dict:
     shapley_dict = defaultdict(float)
     count: int = 0
     for writer in writers:
+        if writer == '':
+            continue
         count += 1
         print(f'writer {count} of {n}')
         for combo in v_values.keys():
@@ -78,6 +81,7 @@ def shapley(writers: set, v_values: dict) -> dict:
                                         (factorial(cardinal_combo)*factorial(n-cardinal_combo-1) /
                                          factorial(n))
         shapley_dict[writer] += v_values[writer] / n
+    shapley_dict[''] = v_values['']
     return shapley_dict
 
 
@@ -86,7 +90,7 @@ def main(model: str, conv_or_revenue: str, category: str):
     shapley_vals = unpickle(shapley_filename)
     if shapley_vals is None:   
         start_time: float = time.time()
-        conversions: dict = unpickle(f'conversion_groups_{model}_{conv_or_revenue}.pickle')
+        conversions: dict = unpickle(f'conversion_groups_{model}_{conv_or_revenue}_{category}.pickle')
         writers: set = get_writers(conversions)
         print(sum(conversions.values()))
         v_values: dict = make_or_get_v_values(writers, conversions, model, conv_or_revenue, category)

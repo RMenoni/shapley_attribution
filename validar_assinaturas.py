@@ -59,46 +59,39 @@ def pickle_conversions(conversions_dict: dict, model: str, conv_or_revenue: str,
     print('Sucesso')
 
 
-def get_conversions_from_csv(model: str) -> pd.DataFrame:
+def get_conversions_from_csv() -> pd.DataFrame:
     """ Extrai dataframe de conversoes de csv
 
-    :param model: se for 'lc', last click, senao shapley
     :return:
     """
-    conversions = pd.read_csv('conversions_lastclick2017.csv') if model == 'lc' else pd.\
-        read_csv('conversions2017.csv')
+    conversions = pd.read_csv('conversions2017.csv')
     conversions = conversions.drop(columns='Number of Records')
-    return conversions
-
-
-def filter_category(conversions: pd.DataFrame, fb: str) -> pd.DataFrame:
-    """ Filtra as conversoes para que so haja frontend ou backend
-
-    :param conversions: dataframe de conversoes
-    :param fb: string 'frontend' ou 'backend'
-    :return: dataframe filtrado
-    """
-    conversions = conversions[conversions['Categoria'] == f'{fb}']
+    conversions['Copy List'] = conversions['Copy List'].apply(lambda x: x if type(x) == str else '')
+    conversions['Last Copy'] = conversions['Last Copy'].apply(lambda x: x if type(x) == str else '')
     return conversions
 
 
 def process_conversions(conversions: pd.DataFrame, copywriters: dict, paid_subs: dict,
-                        category: str) -> pd.DataFrame:
+                        category: str, model: str) -> pd.DataFrame:
     """ Cruza as conversoes do BigQuery com as assinaturas no Redshift
 
     :param conversions: dataframe de conversoes
     :param copywriters: dict de chaves copies e valores copywriters
     :param paid_subs: dict de chaves assinatura e valores (receita nova liquida, categoria)
     :param category: 'Frontend' ou 'Backend'
+    :param model: 'lc'/'sp'/'sf'
     :return:
     """
     conversions['Valor'] = conversions['Assinatura'].apply(lambda x: paid_subs.get(x, (0, ''))[0])
     conversions = conversions[conversions['Valor'] > 0]
     conversions['Categoria'] = conversions['Assinatura'].apply(lambda x: paid_subs.get(x, (0, ''))[1])
-    conversions = filter_category(conversions, category)
-    conversions = conversions.dropna(subset=['Copy List'])
-    conversions['Writer List'] = conversions['Copy List'].apply(lambda x: copylist_to_writerlist(
-        x, copywriters, category))
+    conversions = conversions[conversions['Categoria'] == category]
+    if model == 'lc':
+        conversions['Writer List'] = conversions['Last Copy'].apply(lambda x: copylist_to_writerlist(
+            x, copywriters, category))
+    else:
+        conversions['Writer List'] = conversions['Copy List'].apply(lambda x: copylist_to_writerlist(
+            x, copywriters, category))
     return conversions
 
 
@@ -112,18 +105,17 @@ def make_conversion_dict(conversions: pd.DataFrame, conv_or_revenue: str, model:
     """
     if model == 'sf':
         conversions = conversions[conversions['Fantasma']]
-    conversions = conversions.groupby('Writer List')
     if conv_or_revenue == 'conversoes':
-        conversions_dict = conversions.count().to_dict()['Valor']
+        conversions_dict = conversions.groupby('Writer List').count().to_dict()['Valor']
     else:
-        conversions_dict = conversions.sum().to_dict()['Valor']
+        conversions_dict = conversions.groupby('Writer List').sum().to_dict()['Valor']
     return conversions_dict
 
 
 def main(conv_or_revenue: str, model: str, category: str):
     copywriters, paid_subs = get_copywriters_and_paidsubs()
-    conversions: pd.DataFrame = process_conversions(get_conversions_from_csv(model), copywriters,
-                                                    paid_subs, category)
+    conversions: pd.DataFrame = process_conversions(get_conversions_from_csv(), copywriters,
+                                                    paid_subs, category, model)
     conversions_dict: dict = make_conversion_dict(conversions, conv_or_revenue, model)
     pickle_conversions(conversions_dict, model, conv_or_revenue, category)
     

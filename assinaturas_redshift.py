@@ -56,7 +56,6 @@ def clean_df(df: pd.DataFrame) -> pd.DataFrame:
     """
     df['categoria'] = df['categoria_detalhe'].apply(lambda s: 'Frontend' if s in
                                                     {'Frontend', 'Bundle Front'} else 'Backend')
-    df = df.drop(columns='categoria_detalhe')
     return df
 
 
