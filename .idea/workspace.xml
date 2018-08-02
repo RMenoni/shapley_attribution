@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c45c548-3d8f-44e1-aee9-a6cc2d7bba99" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assinaturas_redshift.py" beforeDir="false" afterPath="$PROJECT_DIR$/assinaturas_redshift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/temp.win-amd64-3.6/Release/v_value.obj" beforeDir="false" afterPath="$PROJECT_DIR$/build/temp.win-amd64-3.6/Release/v_value.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model_graphs.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/model_graphs.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shapley_value.py" beforeDir="false" afterPath="$PROJECT_DIR$/shapley_value.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v_value.c" beforeDir="false" afterPath="$PROJECT_DIR$/v_value.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v_value.cp36-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/v_value.cp36-win_amd64.pyd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/validar_assinaturas.py" beforeDir="false" afterPath="$PROJECT_DIR$/validar_assinaturas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visitas_por_copywriter.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/visitas_por_copywriter.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,16 +21,29 @@
       <file leaf-file-name="validar_assinaturas.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+            <state relative-caret-position="220">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
               <folding>
                 <element signature="e#0#407#1" expanded="true" />
+                <element signature="e#1158#1333#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="540">
+                <caret line="52" selection-start-line="52" selection-end-line="52" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -45,8 +55,7 @@
       <file leaf-file-name="copywriters.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/copywriters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state>
               <folding>
                 <element signature="e#0#8#1" expanded="true" />
                 <element signature="e#243#262#0" expanded="true" />
@@ -58,8 +67,7 @@
       <file leaf-file-name="shapley_value.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shapley_value.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+            <state>
               <folding>
                 <element signature="e#0#38#1" expanded="true" />
                 <element signature="e#41#55#0" expanded="true" />
@@ -71,7 +79,7 @@
       <file leaf-file-name="assinaturas_redshift.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assinaturas_redshift.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
+            <state relative-caret-position="880">
               <caret line="58" selection-start-line="58" selection-end-line="58" />
               <folding>
                 <element signature="e#225#238#0" expanded="true" />
@@ -91,11 +99,12 @@
       <list>
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/copywriters.ipynb" />
-        <option value="$PROJECT_DIR$/shapley_value.py" />
-        <option value="$PROJECT_DIR$/validar_assinaturas.py" />
         <option value="$PROJECT_DIR$/assinaturas_redshift.py" />
         <option value="$PROJECT_DIR$/copywriters.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/shapley_value.py" />
+        <option value="$PROJECT_DIR$/validar_assinaturas.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -452,19 +461,26 @@
       <option name="project" value="LOCAL" />
       <updated>1533065849761</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Simplificadas algumas partes">
+      <created>1533157307272</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1533157307272</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19619326" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11054173" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6709062" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.77424484" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -487,7 +503,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Varios comentarios" />
     <MESSAGE value="Pickles separados para frontend e backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pickles separados para frontend e backend" />
+    <MESSAGE value="Simplificadas algumas partes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplificadas algumas partes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -501,6 +518,7 @@
           <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
           <folding>
             <element signature="e#0#407#1" expanded="true" />
+            <element signature="e#1158#1333#1" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,6 +569,7 @@
           <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
           <folding>
             <element signature="e#0#407#1" expanded="true" />
+            <element signature="e#1158#1333#1" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -601,29 +620,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shapley_value.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#38#1" expanded="true" />
-            <element signature="e#41#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assinaturas_redshift.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
+        <state relative-caret-position="880">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="e#225#238#0" expanded="true" />
@@ -631,23 +630,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/copywriters.py">
+    <entry file="file://$PROJECT_DIR$/shapley_value.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state>
           <folding>
-            <element signature="e#0#8#1" expanded="true" />
-            <element signature="e#243#262#0" expanded="true" />
+            <element signature="e#0#38#1" expanded="true" />
+            <element signature="e#41#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
+    <entry file="file://$PROJECT_DIR$/copywriters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        <state>
           <folding>
-            <element signature="e#0#407#1" expanded="true" />
+            <element signature="e#0#8#1" expanded="true" />
+            <element signature="e#243#262#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -658,6 +656,28 @@
           <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validar_assinaturas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#407#1" expanded="true" />
+            <element signature="e#1158#1333#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="540">
+            <caret line="52" selection-start-line="52" selection-end-line="52" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

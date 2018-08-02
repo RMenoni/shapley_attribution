@@ -66,8 +66,8 @@ def shapley(writers: set, v_values: dict) -> dict:
     shapley_dict = defaultdict(float)
     count: int = 0
     for writer in writers:
-        if writer == '':
-            continue
+        #if writer == '':
+        #    continue
         count += 1
         print(f'writer {count} of {n}')
         for combo in v_values.keys():
@@ -81,7 +81,7 @@ def shapley(writers: set, v_values: dict) -> dict:
                                         (factorial(cardinal_combo)*factorial(n-cardinal_combo-1) /
                                          factorial(n))
         shapley_dict[writer] += v_values[writer] / n
-    shapley_dict[''] = v_values['']
+    #shapley_dict[''] = v_values['']
     return shapley_dict
 
 

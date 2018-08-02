@@ -25,7 +25,7 @@ def copylist_to_writerlist(copy_list: str, copywriters: dict, category: str) -> 
     copywriter_set: set = set()
     for copy in copy_list.split(','):
         copywriter: str = copywriters.get(copy, '')
-        if copywriter != '' and category in copywriter:
+        if copywriter == '' or category in copywriter:
             copywriter_set.add(copywriter)
     return ','.join(sorted(copywriter_set))
 
@@ -125,5 +125,5 @@ if __name__ == '__main__':
             ('lc', 'sp', 'sf') and sys.argv[3] in ('frontend', 'backend'):
         main(sys.argv[1], sys.argv[2], f'{str(sys.argv[3]).title()}')
     else:
-        print('Argumento(s) inválido(s).\nUso: python validar_assinaturas.py [conversoes/receita]'
-              ' [lc/sp/sf] [frontend/backend]')
+        print('Argumento(s) inválido(s).\nUso: python validar_assinaturas.py conversoes/receita'
+              ' lc/sp/sf frontend/backend')
