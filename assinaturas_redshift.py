@@ -29,8 +29,10 @@ def get_df_from_query() -> pd.DataFrame:
     :return: dataframe de vendas
     """
     username, password = get_credentials()
+    print('Connecting to Redshift...')
     con = connect(host='analytics-bi.cdlqehqrgcus.us-east-1.redshift.amazonaws.com',
                   dbname='hmlredshift', port=5439, user=username, password=password)
+    print('Querying...')
     query: str = """
         SELECT
             subscription_id,
@@ -44,6 +46,7 @@ def get_df_from_query() -> pd.DataFrame:
             AND ult_dia_mes BETWEEN '2017-07-01' AND '2017-12-31';
     """
     df: pd.DataFrame = pd.read_sql(query, con=con)
+    print('Closing connection...')
     con.close()
     return df
     

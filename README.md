@@ -1,5 +1,10 @@
 # Empiricus - Shapley Attribution Model
 
+run_all.py
+
+- Descrição: Roda todos os programas na ordem certa
+- Requer: conversions2017.csv, credenciais Redshift e caminho de Python em .env, copywriters.csv
+
 copywriters.py
 
 - Descrição: Cria um dicionário que associa copies a copywriters

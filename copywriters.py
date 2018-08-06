@@ -43,6 +43,7 @@ def main():
     df: pd.DataFrame = read_copy_csv()
     copywriter_dict = make_copywriter_dict(df)
     pickle_copywriters(copywriter_dict)
+    print('Sucesso com copywriters')
 
 
 if __name__ == '__main__':
